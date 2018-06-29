@@ -1,4 +1,7 @@
 .contenedor-prefs {
+    margin-top: 200px;
+    min-height: 400px;
+    min-width: 400px;
     background-color: orange;
 }
 

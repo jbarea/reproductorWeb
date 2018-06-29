@@ -6,16 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reproductor Web</title>
     <script src="https://connect.soundcloud.com/sdk/sdk-3.3.0.js"></script>
-    <script src=".main.js"></script>
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="estilos.css" type="text/css">
 </head>
 <body>
     <header id="cabecera" class="cabecera">
         <div id="barraBusqueda">
-            <input type="text" id="busqueda" placeholder="Busqueda">
+            <input type="text" id="busqueda" placeholder="Busqueda"><br>
+            <input type="button" class="boton-envio" value="Buscar" onclick="getInfo()">
         </div>
     </header>
+    <div class="resultado" id="resultado">
+        
+    </div>
 
-    <div class ="contenedor-prefs" id="contenedor">
+    <div class="contenedor-prefs" id="contenedor">
 
     </div>
 </body>
