@@ -30,6 +30,7 @@ function getInfo(){
                     elemento.addEventListener('dragend', function (event){
                         console.log('onDragEnd');
                     })
+                    
                     zonaFoto.appendChild(elemento);
                     console.log(elemento);
                 } 
@@ -44,6 +45,13 @@ function getInfo(){
 // }).catch(function (error) {
 //     console.error('NO ha funcionado la peticion');
 // })
+
+/* elemento.addEventListener('drop', function (event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData('targetId');
+    event.target.appendChild(document.getElementById(data));
+    console.log('onDrop', data);
+}) */
 
 function miOnDragStart(ev){
     //console.log(event.target.id);
