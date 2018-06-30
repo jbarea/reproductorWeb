@@ -22,11 +22,20 @@ function getInfo(){
                 if (ele['artwork_url']!= null){
                     elemento.src = ele['artwork_url'];
                     elemento.draggable = true;
+                    elemento.addEventListener('dragstart', function (event){
+                        event.dataTransfer.setData("targetId", event.target.id);
+                        console.log('onDragStart');
+                        console.log(event);
+                    });
+                    elemento.addEventListener('dragend', function (event){
+                        console.log('onDragEnd');
+                    })
                     zonaFoto.appendChild(elemento);
                     console.log(elemento);
                 } 
         }
         //console.log(arrayData);
+        
     });
 }
 
