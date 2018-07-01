@@ -26,10 +26,10 @@ function getInfo(){
                     elemento.addEventListener('dragstart', miOnDragStart);
                     elemento.addEventListener('dragend', function (event){
                         console.log('onDragEnd');
-                        console.log(event.target);
+                        //console.log(event.target);
                     });
                     elemento.addEventListener('dragover', function(event){
-                        console.log('onDragEvent');
+                        console.log('onDragOver');
                         //console.log(event);
                     })
                     
@@ -59,12 +59,12 @@ function miOnDragStart(ev){
 function miOnDragEnd(ev){
     console.log("onDragEnd");
     console.log(ev.target);
-    console.log(event);
+    //console.log(event);
 }
 
 function miOnDragOver(ev){ 
     console.log("onDragOver");
-    console.log(ev.target)
+    //console.log(ev.target)
 }
 
 function miOnDrop(ev){
