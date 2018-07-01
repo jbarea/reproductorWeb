@@ -18,17 +18,19 @@ function getInfo(){
         //console.log(tracks[1]['artwork_url']);
         for (var ele of tracks){
             //arrayData.push(ele['artwork_url']);
+            //var dropzone = document.getElementById('contenedor');
             var elemento = document.createElement('img');
                 if (ele['artwork_url']!= null){
                     elemento.src = ele['artwork_url'];
                     elemento.draggable = true;
-                    elemento.addEventListener('dragstart', function (event){
-                        event.dataTransfer.setData("targetId", event.target.id);
-                        console.log('onDragStart');
-                        console.log(event);
-                    });
+                    elemento.addEventListener('dragstart', miOnDragStart);
                     elemento.addEventListener('dragend', function (event){
                         console.log('onDragEnd');
+                        console.log(event.target);
+                    });
+                    elemento.addEventListener('dragover', function(event){
+                        console.log('onDragEvent');
+                        //console.log(event);
                     })
                     
                     zonaFoto.appendChild(elemento);
@@ -40,21 +42,15 @@ function getInfo(){
     });
 }
 
+
 // SC.stream('/tracks/88295642').then(function (player) {
 //     player.play();
 // }).catch(function (error) {
 //     console.error('NO ha funcionado la peticion');
 // })
 
-/* elemento.addEventListener('drop', function (event) {
-    event.preventDefault();
-    var data = event.dataTransfer.getData('targetId');
-    event.target.appendChild(document.getElementById(data));
-    console.log('onDrop', data);
-}) */
-
 function miOnDragStart(ev){
-    //console.log(event.target.id);
+    console.log(event.target.id);
     ev.dataTransfer.setData("targetId", event.target.id);
     console.log('onDragStart');
     console.log(ev)
@@ -63,18 +59,21 @@ function miOnDragStart(ev){
 function miOnDragEnd(ev){
     console.log("onDragEnd");
     console.log(ev.target);
+    console.log(event);
 }
 
-function miOnDragOver(ev){
-    ev.preventDefault;
+function miOnDragOver(ev){ 
     console.log("onDragOver");
-
+    console.log(ev.target)
 }
 
-function miOnDrop(){
+function miOnDrop(ev){
     ev.preventDefault();//para que en mozilla no falle y añada una imagen en tab nuevo
     //var data = ev.dataTransfer.getData("text");
+    console.log(event.target);
     var data = ev.dataTransfer.getData("targetId");
     ev.target.appendChild(document.getElementById(data));//para llamar a si mismo y modificar el documento|estamos dejando la imagen dentro del div
+    console.log('pasa por ondrop!!!!')
     console.log('onDrop', data)
+    console.log(event);
 }
