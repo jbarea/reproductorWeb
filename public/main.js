@@ -14,6 +14,7 @@ function getInfo(){
     }).then(function (tracks) {
         //var arrayData = [];
         var zonaFoto = document.getElementById('resultado');
+        zonaFoto.innerHTML = '';
         console.log(tracks);
         //console.log(tracks[1]['artwork_url']);
         for (var ele of tracks){
@@ -44,9 +45,13 @@ function getInfo(){
 }
 
 
-
+// SC.stream('/tracks/88295642').then(function (player) {
+//     player.play();
+// }).catch(function (error) {
+//     console.error('NO ha funcionado la peticion');
+// })
 function playTrack(data){
-    SC.stream('/tracks/88295642').then(function (player) {
+    SC.stream(`/tracks/${data}`).then(function (player) {
         player.play();
     }).catch(function (error) {
         console.error('NO ha funcionado la peticion');

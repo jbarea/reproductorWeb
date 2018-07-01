@@ -1,7 +1,32 @@
 header {
+    background-color: chocolate;
     display: flex;
+    align-content: space-between;
 }
+
+.h1Titulo {
+    margin-left: 50px;
+}
+
+.barraBusqueda {
+    position: relative;
+    margin-top: 100px;
+    min-height: 100px;
+    min-width: 100px;
+}
+
+#busqueda {
+    margin-left: 50px;
+    margin-bottom: 25px;
+}
+
+.boton-envio {
+    margin-left: 50px;
+    margin-bottom: 25px;
+}
+
 #contenedor {
+
     margin-top: 200px;
     min-height: 400px;
     min-width: 400px;
