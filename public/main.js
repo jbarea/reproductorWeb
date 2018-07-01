@@ -44,11 +44,14 @@ function getInfo(){
 }
 
 
-// SC.stream('/tracks/88295642').then(function (player) {
-//     player.play();
-// }).catch(function (error) {
-//     console.error('NO ha funcionado la peticion');
-// })
+
+function playTrack(data){
+    SC.stream('/tracks/88295642').then(function (player) {
+        player.play();
+    }).catch(function (error) {
+        console.error('NO ha funcionado la peticion');
+    })
+}
 
 function miOnDragStart(ev){
     console.log(event.target.id);
@@ -78,4 +81,5 @@ function miOnDrop(ev){
     // console.log('pasa por ondrop!!!!')
     // console.log('onDrop', data)
     // console.log(event);
+    playTrack(data);
 }
