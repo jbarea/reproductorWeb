@@ -23,6 +23,7 @@ function getInfo(){
                 if (ele['artwork_url']!= null){
                     elemento.src = ele['artwork_url'];
                     elemento.draggable = true;
+                    elemento.id = ele['id'];
                     elemento.addEventListener('dragstart', miOnDragStart);
                     elemento.addEventListener('dragend', function (event){
                         console.log('onDragEnd');
@@ -62,7 +63,8 @@ function miOnDragEnd(ev){
     //console.log(event);
 }
 
-function miOnDragOver(ev){ 
+function miOnDragOver(ev){
+    ev.preventDefault(); 
     console.log("onDragOver");
     //console.log(ev.target)
 }
@@ -73,7 +75,7 @@ function miOnDrop(ev){
     console.log(event.target);
     var data = ev.dataTransfer.getData("targetId");
     ev.target.appendChild(document.getElementById(data));//para llamar a si mismo y modificar el documento|estamos dejando la imagen dentro del div
-    console.log('pasa por ondrop!!!!')
-    console.log('onDrop', data)
-    console.log(event);
+    // console.log('pasa por ondrop!!!!')
+    // console.log('onDrop', data)
+    // console.log(event);
 }
