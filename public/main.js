@@ -1,7 +1,8 @@
 SC.initialize({
     client_id: 'unnFdubicpq7RVFFsQucZzduDPQTaCYy'
 })
-
+//en chrome se puede usar event o ev indistintamente en las llamadas dentro de la funcion, pero para que funcione en firefox
+//hay que usar el ev, si se le ha puesto ese nombre al argumento
 //let data = document.getElementById('busqueda').value;
 var page_size = 10;
 
@@ -59,8 +60,8 @@ function playTrack(data){
 }
 
 function miOnDragStart(ev){
-    console.log(event.target.id);
-    ev.dataTransfer.setData("targetId", event.target.id);
+    console.log(ev.target.id);
+    ev.dataTransfer.setData("targetId", ev.target.id);
     console.log('onDragStart');
     console.log(ev)
 }
@@ -80,7 +81,7 @@ function miOnDragOver(ev){
 function miOnDrop(ev){
     ev.preventDefault();//para que en mozilla no falle y añada una imagen en tab nuevo
     //var data = ev.dataTransfer.getData("text");
-    console.log(event.target);
+    console.log(ev.target);
     var data = ev.dataTransfer.getData("targetId");
     ev.target.appendChild(document.getElementById(data));//para llamar a si mismo y modificar el documento|estamos dejando la imagen dentro del div
     // console.log('pasa por ondrop!!!!')
